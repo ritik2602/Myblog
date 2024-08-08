@@ -3,7 +3,7 @@ const { engine } = require('express-handlebars');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 // Configure Express to use Handlebars as the template engine
 app.engine('handlebars', engine());
