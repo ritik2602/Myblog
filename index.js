@@ -15,6 +15,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Include your routes
 app.use('/', require('./routes/blog')); // Ensure the correct path to your routes file
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
 // Start the server
 app.listen(port, () => {
   console.log(`Example app listening on http://localhost:${port}`);
